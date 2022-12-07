@@ -15,7 +15,7 @@ class _FirstScreenState extends State<FirstScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Future.delayed(Duration(seconds: 5), () {
+    Future.delayed(Duration(seconds: 8), () {
       Navigator.push(context, MaterialPageRoute(builder: (_) => LoginPage()));
     });
   }
@@ -29,13 +29,13 @@ class _FirstScreenState extends State<FirstScreen> {
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
           Center(
-            child: Lottie.asset("animation/man.json"),
+            child: Lottie.asset("animation/moving.json"),
           ),
           Text("CRYPTIFIED",
               style: TextStyle(
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
-                  color: Colors.indigo.shade700))
+                  color: Colors.white))
         ],
       ),
     );

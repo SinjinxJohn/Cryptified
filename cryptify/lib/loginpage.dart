@@ -47,7 +47,7 @@ class _LoginPageState extends State<LoginPage> {
                   child: ResuableButton(
                       text: "Login", color: Colors.indigo.shade700)),
               SizedBox(
-                height: 4,
+                height: 10,
               ),
               GestureDetector(
                 onTap: () {
