@@ -24,6 +24,8 @@ class HomePage extends StatefulWidget {
 class _HomePageState extends State<HomePage> {
   // List<> _color = [];
   List<Crypto> _cryptologo = [];
+  List<Crypto> _sorted = [];
+  List<Crypto> _random = [];
   // List<Crypto> _found = [];
   // Future<List<Crypto>> apicall() async {
   //   http.Response response;
@@ -44,8 +46,18 @@ class _HomePageState extends State<HomePage> {
   void initState() {
     fetchPost().then((value) {
       if (mounted)
+        // ignore: curly_braces_in_flow_control_structures
         setState(() {
           _cryptologo.addAll(value);
+          _random.addAll(_cryptologo);
+          _random.shuffle();
+
+          _sorted.addAll(_cryptologo);
+          _sorted.sort(((b, a) => a.currentPrice!.compareTo(b.currentPrice!)));
+          // int k = 0;
+          // for (int i in _cryptologo.length) {
+          //   _sorted[i] = _cryptologo[k];
+
           // _cryptologo.sortBy()
           // _cryptologo.sort(
           //   (a, b) {
@@ -86,7 +98,7 @@ class _HomePageState extends State<HomePage> {
                     // borderRadius: BorderRadius.circular(14)
                   ),
                   child: PageView.builder(
-                      itemCount: _cryptologo.length,
+                      itemCount: _random.length,
                       controller: PageController(viewportFraction: 1),
                       itemBuilder: ((context, index) {
                         return Padding(
@@ -109,7 +121,7 @@ class _HomePageState extends State<HomePage> {
                                         CrossAxisAlignment.start,
                                     children: [
                                       Text(
-                                        _cryptologo[index].name.toString(),
+                                        _random[index].name.toString(),
                                         style: TextStyle(
                                             fontSize: 20,
                                             fontWeight: FontWeight.bold),
@@ -117,7 +129,7 @@ class _HomePageState extends State<HomePage> {
                                       SizedBox(
                                         width: 5,
                                       ),
-                                      Text(_cryptologo[index].symbol.toString(),
+                                      Text(_random[index].symbol.toString(),
                                           style: TextStyle(
                                               fontSize: 16,
                                               // fontWeight: FontWeight.bold,
@@ -127,7 +139,7 @@ class _HomePageState extends State<HomePage> {
                                       ),
                                       Text(
                                           "\$" +
-                                              _cryptologo[index]
+                                              _random[index]
                                                   .currentPrice
                                                   .toString(),
                                           style: TextStyle(
@@ -138,9 +150,7 @@ class _HomePageState extends State<HomePage> {
                                       ),
                                       Text(
                                           "Low: \$" +
-                                              _cryptologo[index]
-                                                  .low24h
-                                                  .toString(),
+                                              _random[index].low24h.toString(),
                                           style: TextStyle(
                                               fontSize: 15,
                                               color: Colors.grey)),
@@ -149,9 +159,7 @@ class _HomePageState extends State<HomePage> {
                                       ),
                                       Text(
                                           "high: \$" +
-                                              _cryptologo[index]
-                                                  .low24h
-                                                  .toString(),
+                                              _random[index].low24h.toString(),
                                           style: TextStyle(
                                               fontSize: 15,
                                               color: Colors.grey)),
@@ -159,14 +167,14 @@ class _HomePageState extends State<HomePage> {
                                         height: 10,
                                       ),
                                       Text(
-                                        _cryptologo[index]
+                                        _random[index]
                                                 .priceChangePercentage24h
                                                 .toString() +
                                             "%",
                                         style: TextStyle(
                                             fontSize: 20,
                                             fontWeight: FontWeight.bold,
-                                            color: _cryptologo[index]
+                                            color: _random[index]
                                                         .priceChangePercentage24h! <
                                                     0
                                                 ? Colors.red
@@ -176,7 +184,7 @@ class _HomePageState extends State<HomePage> {
                                         height: 10,
                                       ),
                                       Text(
-                                        _cryptologo[index]
+                                        _random[index]
                                                     .priceChangePercentage24h! >
                                                 0
                                             ? "BUY"
@@ -184,7 +192,7 @@ class _HomePageState extends State<HomePage> {
                                         style: TextStyle(
                                             fontSize: 25,
                                             fontWeight: FontWeight.bold,
-                                            color: _cryptologo[index]
+                                            color: _random[index]
                                                         .priceChangePercentage24h! <
                                                     0
                                                 ? Colors.red
@@ -201,10 +209,9 @@ class _HomePageState extends State<HomePage> {
                                         borderRadius: BorderRadius.circular(15),
                                         image: DecorationImage(
                                             fit: BoxFit.cover,
-                                            image: NetworkImage(
-                                                _cryptologo[index]
-                                                    .image
-                                                    .toString()))),
+                                            image: NetworkImage(_random[index]
+                                                .image
+                                                .toString()))),
                                   ),
                                 ],
                               ),
@@ -281,7 +288,7 @@ class _HomePageState extends State<HomePage> {
                                     color: Colors.transparent,
                                     child: ListView.builder(
                                       scrollDirection: Axis.horizontal,
-                                      itemCount: _cryptologo.length,
+                                      itemCount: _sorted.length,
                                       itemBuilder: ((context, index) {
                                         return Column(children: [
                                           Container(
@@ -294,7 +301,7 @@ class _HomePageState extends State<HomePage> {
                                                 image: DecorationImage(
                                                     fit: BoxFit.cover,
                                                     image: NetworkImage(
-                                                        _cryptologo[index]
+                                                        _sorted[index]
                                                             .image
                                                             .toString()))),
                                           ),
@@ -302,7 +309,7 @@ class _HomePageState extends State<HomePage> {
                                             height: 10,
                                           ),
                                           Text(
-                                            _cryptologo[index].name.toString(),
+                                            _sorted[index].name.toString(),
                                             style: TextStyle(fontSize: 13),
                                           )
                                         ]);
