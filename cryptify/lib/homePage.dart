@@ -12,6 +12,7 @@ import 'package:cryptify/api.dart';
 import './api.dart';
 import './network.dart';
 import './searchSection.dart';
+import 'package:flutter_bounce/flutter_bounce.dart';
 // import 'package:titled_navigation_bar/titled_navigation_bar.dart';
 
 class HomePage extends StatefulWidget {
@@ -201,17 +202,22 @@ class _HomePageState extends State<HomePage> {
                                     ],
                                   ),
                                   Spacer(),
-                                  Container(
-                                    height: 87,
-                                    width: 87,
-                                    // margin: EdgeInsets.all(10),
-                                    decoration: BoxDecoration(
-                                        borderRadius: BorderRadius.circular(15),
-                                        image: DecorationImage(
-                                            fit: BoxFit.cover,
-                                            image: NetworkImage(_random[index]
-                                                .image
-                                                .toString()))),
+                                  Bounce(
+                                    onPressed: () {},
+                                    duration: Duration(milliseconds: 200),
+                                    child: Container(
+                                      height: 87,
+                                      width: 87,
+                                      // margin: EdgeInsets.all(10),
+                                      decoration: BoxDecoration(
+                                          borderRadius:
+                                              BorderRadius.circular(15),
+                                          image: DecorationImage(
+                                              fit: BoxFit.cover,
+                                              image: NetworkImage(_random[index]
+                                                  .image
+                                                  .toString()))),
+                                    ),
                                   ),
                                 ],
                               ),
@@ -242,19 +248,24 @@ class _HomePageState extends State<HomePage> {
                                       itemCount: _cryptologo.length,
                                       itemBuilder: ((context, index) {
                                         return Column(children: [
-                                          Container(
-                                            height: 60,
-                                            width: 60,
-                                            margin: EdgeInsets.all(15),
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(15),
-                                                image: DecorationImage(
-                                                    fit: BoxFit.cover,
-                                                    image: NetworkImage(
-                                                        _cryptologo[index]
-                                                            .image
-                                                            .toString()))),
+                                          Bounce(
+                                            onPressed: () {},
+                                            duration:
+                                                Duration(milliseconds: 200),
+                                            child: Container(
+                                              height: 60,
+                                              width: 60,
+                                              margin: EdgeInsets.all(15),
+                                              decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(15),
+                                                  image: DecorationImage(
+                                                      fit: BoxFit.cover,
+                                                      image: NetworkImage(
+                                                          _cryptologo[index]
+                                                              .image
+                                                              .toString()))),
+                                            ),
                                           ),
                                           SizedBox(
                                             height: 10,
@@ -291,19 +302,24 @@ class _HomePageState extends State<HomePage> {
                                       itemCount: _sorted.length,
                                       itemBuilder: ((context, index) {
                                         return Column(children: [
-                                          Container(
-                                            height: 60,
-                                            width: 60,
-                                            margin: EdgeInsets.all(15),
-                                            decoration: BoxDecoration(
-                                                borderRadius:
-                                                    BorderRadius.circular(15),
-                                                image: DecorationImage(
-                                                    fit: BoxFit.cover,
-                                                    image: NetworkImage(
-                                                        _sorted[index]
-                                                            .image
-                                                            .toString()))),
+                                          Bounce(
+                                            onPressed: () {},
+                                            duration:
+                                                Duration(milliseconds: 200),
+                                            child: Container(
+                                              height: 60,
+                                              width: 60,
+                                              margin: EdgeInsets.all(15),
+                                              decoration: BoxDecoration(
+                                                  borderRadius:
+                                                      BorderRadius.circular(15),
+                                                  image: DecorationImage(
+                                                      fit: BoxFit.cover,
+                                                      image: NetworkImage(
+                                                          _sorted[index]
+                                                              .image
+                                                              .toString()))),
+                                            ),
                                           ),
                                           SizedBox(
                                             height: 10,
