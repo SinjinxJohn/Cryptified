@@ -1,0 +1,135 @@
+import 'dart:convert';
+
+import 'package:cryptify/Components/reusablelistview.dart';
+import 'package:cryptify/Components/Button.dart';
+import 'package:cryptify/TopPerformer.dart';
+import 'package:cryptify/searchSection.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/src/widgets/container.dart';
+import 'package:flutter/src/widgets/framework.dart';
+import 'package:http/http.dart' as http;
+import 'package:cryptify/api.dart';
+import './api.dart';
+import './network.dart';
+import './searchSection.dart';
+// import 'package:titled_navigation_bar/titled_navigation_bar.dart';
+
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
+
+  @override
+  State<HomePage> createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  List<Crypto> _cryptologo = [];
+  // List<Crypto> _found = [];
+  // Future<List<Crypto>> apicall() async {
+  //   http.Response response;
+  //   response = await http.get(Uri.parse(
+  //       "https://api.coingecko.com/api/v3/coins/markets?vs_currency=usd&order=market_cap_desc&per_page=100&page=1&sparkline=false"));
+  //   var data = jsonDecode(response.body.toString());
+  //   if (response.statusCode == 200) {
+  //     for (Map<String, dynamic> i in data) {
+  //       // crypto.clear();
+  //       crypto.add(Crypto.fromJson(i));
+  //     }
+  //     return crypto;
+  //   }
+  //   return crypto;
+  // }
+
+  @override
+  void initState() {
+    fetchPost().then((value) {
+      setState(() {
+        _cryptologo.addAll(value);
+        // _cryptologo.sortBy()
+        // _cryptologo.sort(
+        //   (a, b) {
+        //     return b.priceChange24h!.compareTo(a.priceChange24h!);
+        //   },
+        // );
+        // _found = _crypto;
+      });
+    });
+    // TODO: implement initState
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return SafeArea(
+        child: Scaffold(
+            backgroundColor: Colors.transparent,
+            body:
+                Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+              Padding(
+                padding: const EdgeInsets.all(15.0),
+                child: Text(
+                  "Cryptified",
+                  style: TextStyle(fontWeight: FontWeight.bold, fontSize: 25),
+                  textAlign: TextAlign.start,
+                ),
+              ),
+              SizedBox(
+                height: 8,
+              ),
+              Center(
+                child: Container(
+                  height: 250,
+                  width: 350,
+                  decoration: BoxDecoration(
+                      color: Color.fromARGB(255, 69, 10, 177),
+                      borderRadius: BorderRadius.circular(14)),
+                ),
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 15, top: 20, bottom: 10),
+                child: Text(
+                  "MOST POPULAR",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+              ),
+              Row(children: [
+                Expanded(
+                    child: SingleChildScrollView(
+                        child: Center(
+                            child: SizedBox(
+                                width: 800,
+                                height: 130,
+                                child: Card(
+                                    color: Colors.transparent,
+                                    child: ListView.builder(
+                                      scrollDirection: Axis.horizontal,
+                                      itemCount: _cryptologo.length,
+                                      itemBuilder: ((context, index) {
+                                        return Column(children: [
+                                          Container(
+                                            height: 60,
+                                            width: 60,
+                                            margin: EdgeInsets.all(10),
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(15),
+                                                image: DecorationImage(
+                                                    fit: BoxFit.cover,
+                                                    image: NetworkImage(
+                                                        _cryptologo[index]
+                                                            .image
+                                                            .toString()))),
+                                          ),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          Text(
+                                            _cryptologo[index].name.toString(),
+                                            style: TextStyle(fontSize: 13),
+                                          )
+                                        ]);
+                                      }),
+                                    ))))))
+              ])
+            ])));
+  }
+}
