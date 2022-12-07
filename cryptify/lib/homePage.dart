@@ -22,6 +22,7 @@ class HomePage extends StatefulWidget {
 }
 
 class _HomePageState extends State<HomePage> {
+  // List<> _color = [];
   List<Crypto> _cryptologo = [];
   // List<Crypto> _found = [];
   // Future<List<Crypto>> apicall() async {
@@ -42,16 +43,17 @@ class _HomePageState extends State<HomePage> {
   @override
   void initState() {
     fetchPost().then((value) {
-      setState(() {
-        _cryptologo.addAll(value);
-        // _cryptologo.sortBy()
-        // _cryptologo.sort(
-        //   (a, b) {
-        //     return b.priceChange24h!.compareTo(a.priceChange24h!);
-        //   },
-        // );
-        // _found = _crypto;
-      });
+      if (mounted)
+        setState(() {
+          _cryptologo.addAll(value);
+          // _cryptologo.sortBy()
+          // _cryptologo.sort(
+          //   (a, b) {
+          //     return b.priceChange24h!.compareTo(a.priceChange24h!);
+          //   },
+          // );
+          // _found = _crypto;
+        });
     });
     // TODO: implement initState
     super.initState();
@@ -80,14 +82,142 @@ class _HomePageState extends State<HomePage> {
                   height: 250,
                   width: 350,
                   decoration: BoxDecoration(
-                      color: Color.fromARGB(255, 69, 10, 177),
-                      borderRadius: BorderRadius.circular(14)),
+                    color: Colors.transparent,
+                    // borderRadius: BorderRadius.circular(14)
+                  ),
+                  child: PageView.builder(
+                      itemCount: _cryptologo.length,
+                      controller: PageController(viewportFraction: 1),
+                      itemBuilder: ((context, index) {
+                        return Padding(
+                          padding: const EdgeInsets.all(8.0),
+                          child: Container(
+                            height: 250,
+                            width: 350,
+                            decoration: BoxDecoration(
+                                color: Color.fromARGB(255, 40, 39, 39),
+                                borderRadius: BorderRadius.circular(14)),
+                            child: Padding(
+                              padding: const EdgeInsets.all(20.0),
+                              child: Row(
+                                // mainAxisAlignment: MainAxisAlignment.start,
+                                // crossAxisAlignment: CrossAxisAlignment.center,
+                                children: [
+                                  Column(
+                                    // mainAxisAlignment: MainAxisAlignment.start,
+                                    crossAxisAlignment:
+                                        CrossAxisAlignment.start,
+                                    children: [
+                                      Text(
+                                        _cryptologo[index].name.toString(),
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold),
+                                      ),
+                                      SizedBox(
+                                        width: 5,
+                                      ),
+                                      Text(_cryptologo[index].symbol.toString(),
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              // fontWeight: FontWeight.bold,
+                                              color: Colors.grey)),
+                                      SizedBox(
+                                        height: 7,
+                                      ),
+                                      Text(
+                                          "\$" +
+                                              _cryptologo[index]
+                                                  .currentPrice
+                                                  .toString(),
+                                          style: TextStyle(
+                                              fontSize: 16,
+                                              color: Colors.grey)),
+                                      SizedBox(
+                                        height: 3,
+                                      ),
+                                      Text(
+                                          "Low: \$" +
+                                              _cryptologo[index]
+                                                  .low24h
+                                                  .toString(),
+                                          style: TextStyle(
+                                              fontSize: 15,
+                                              color: Colors.grey)),
+                                      SizedBox(
+                                        height: 3,
+                                      ),
+                                      Text(
+                                          "high: \$" +
+                                              _cryptologo[index]
+                                                  .low24h
+                                                  .toString(),
+                                          style: TextStyle(
+                                              fontSize: 15,
+                                              color: Colors.grey)),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text(
+                                        _cryptologo[index]
+                                                .priceChangePercentage24h
+                                                .toString() +
+                                            "%",
+                                        style: TextStyle(
+                                            fontSize: 20,
+                                            fontWeight: FontWeight.bold,
+                                            color: _cryptologo[index]
+                                                        .priceChangePercentage24h! <
+                                                    0
+                                                ? Colors.red
+                                                : Colors.green),
+                                      ),
+                                      SizedBox(
+                                        height: 10,
+                                      ),
+                                      Text(
+                                        _cryptologo[index]
+                                                    .priceChangePercentage24h! >
+                                                0
+                                            ? "BUY"
+                                            : "Sell",
+                                        style: TextStyle(
+                                            fontSize: 25,
+                                            fontWeight: FontWeight.bold,
+                                            color: _cryptologo[index]
+                                                        .priceChangePercentage24h! <
+                                                    0
+                                                ? Colors.red
+                                                : Colors.green),
+                                      ),
+                                    ],
+                                  ),
+                                  Spacer(),
+                                  Container(
+                                    height: 100,
+                                    width: 100,
+                                    // margin: EdgeInsets.all(10),
+                                    decoration: BoxDecoration(
+                                        borderRadius: BorderRadius.circular(15),
+                                        image: DecorationImage(
+                                            fit: BoxFit.cover,
+                                            image: NetworkImage(
+                                                _cryptologo[index]
+                                                    .image
+                                                    .toString()))),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                        );
+                      })),
                 ),
               ),
               Padding(
                 padding: const EdgeInsets.only(left: 15, top: 20, bottom: 10),
                 child: Text(
-                  "MOST POPULAR",
+                  "Most Popular",
                   style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
                 ),
               ),
@@ -108,7 +238,7 @@ class _HomePageState extends State<HomePage> {
                                           Container(
                                             height: 60,
                                             width: 60,
-                                            margin: EdgeInsets.all(10),
+                                            margin: EdgeInsets.all(15),
                                             decoration: BoxDecoration(
                                                 borderRadius:
                                                     BorderRadius.circular(15),
@@ -129,7 +259,56 @@ class _HomePageState extends State<HomePage> {
                                         ]);
                                       }),
                                     ))))))
-              ])
+              ]),
+              SizedBox(
+                height: 15,
+              ),
+              Padding(
+                padding: const EdgeInsets.only(left: 15, top: 20, bottom: 10),
+                child: Text(
+                  "Top Performers",
+                  style: TextStyle(fontSize: 20, fontWeight: FontWeight.bold),
+                ),
+              ),
+              Row(children: [
+                Expanded(
+                    child: SingleChildScrollView(
+                        child: Center(
+                            child: SizedBox(
+                                width: 800,
+                                height: 130,
+                                child: Card(
+                                    color: Colors.transparent,
+                                    child: ListView.builder(
+                                      scrollDirection: Axis.horizontal,
+                                      itemCount: _cryptologo.length,
+                                      itemBuilder: ((context, index) {
+                                        return Column(children: [
+                                          Container(
+                                            height: 60,
+                                            width: 60,
+                                            margin: EdgeInsets.all(15),
+                                            decoration: BoxDecoration(
+                                                borderRadius:
+                                                    BorderRadius.circular(15),
+                                                image: DecorationImage(
+                                                    fit: BoxFit.cover,
+                                                    image: NetworkImage(
+                                                        _cryptologo[index]
+                                                            .image
+                                                            .toString()))),
+                                          ),
+                                          SizedBox(
+                                            height: 10,
+                                          ),
+                                          Text(
+                                            _cryptologo[index].name.toString(),
+                                            style: TextStyle(fontSize: 13),
+                                          )
+                                        ]);
+                                      }),
+                                    ))))))
+              ]),
             ])));
   }
 }

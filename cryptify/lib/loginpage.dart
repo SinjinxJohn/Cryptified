@@ -1,9 +1,9 @@
 import 'package:cryptify/Components/Button.dart';
 import 'package:cryptify/Components/inputBox.dart';
-import 'package:cryptify/homePage.dart';
+import 'package:cryptify/bottomnavbar.dart';
+
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import 'package:lottie/lottie.dart';
 
 class LoginPage extends StatefulWidget {
@@ -42,7 +42,7 @@ class _LoginPageState extends State<LoginPage> {
               GestureDetector(
                   onTap: () {
                     Navigator.push(context,
-                        MaterialPageRoute(builder: ((context) => HomePage())));
+                        MaterialPageRoute(builder: ((context) => bottomNav())));
                   },
                   child: ResuableButton(
                       text: "Login", color: Colors.indigo.shade700)),

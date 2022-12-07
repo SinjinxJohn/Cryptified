@@ -1,6 +1,7 @@
+// ignore_for_file: camel_case_types
+
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
+
 import './homePage.dart';
 import './searchSection.dart';
 
@@ -29,7 +30,7 @@ class _bottomNavState extends State<bottomNav> {
           type: BottomNavigationBarType.fixed,
           backgroundColor: Colors.transparent,
           selectedItemColor: Colors.white,
-          unselectedItemColor: Colors.blueGrey,
+          unselectedItemColor: Colors.grey,
           // Use this to update the Bar giving a position
           onTap: (index) {
             setState(() {

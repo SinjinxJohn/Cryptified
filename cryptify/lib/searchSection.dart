@@ -1,13 +1,8 @@
-import 'dart:convert';
-
-import 'package:cryptify/Components/inputBox.dart';
-import 'package:cryptify/TopPerformer.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter/src/widgets/container.dart';
-import 'package:flutter/src/widgets/framework.dart';
-import 'package:http/http.dart' as http;
+
+// import 'package:http/http.dart' as http;
 import 'package:cryptify/api.dart';
-import './api.dart';
+
 import './network.dart';
 
 class SearchBar extends StatefulWidget {
@@ -20,6 +15,7 @@ class SearchBar extends StatefulWidget {
 class _SearchBarState extends State<SearchBar> {
   List<Crypto> _crypto = [];
   List<Crypto> _found = [];
+  bool _click = true;
   // Future<List<Crypto>> apicall() async {
   //   http.Response response;
   //   response = await http.get(Uri.parse(
@@ -108,7 +104,7 @@ class _SearchBarState extends State<SearchBar> {
     return Padding(
       padding: const EdgeInsets.only(top: 20.0, bottom: 10),
       child: Container(
-          width: 300,
+          width: 250,
           child: TextField(
             onChanged: (value) {
               value = value.toLowerCase();
@@ -136,8 +132,8 @@ class _SearchBarState extends State<SearchBar> {
         child: Row(
           children: [
             Container(
-              height: 60,
-              width: 60,
+              height: 50,
+              width: 50,
               margin: EdgeInsets.all(10),
               decoration: BoxDecoration(
                   borderRadius: BorderRadius.circular(15),
@@ -152,7 +148,7 @@ class _SearchBarState extends State<SearchBar> {
             Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
               Text(
                 _found[index].name.toString(),
-                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+                style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
               ),
               // SizedBox(
               //   width: 5,
@@ -180,7 +176,25 @@ class _SearchBarState extends State<SearchBar> {
               style: TextStyle(
                   fontWeight: FontWeight.bold,
                   color: price_change! < 0 ? Colors.red : Colors.green),
-            )
+            ),
+            // SizedBox(
+            //   width: 5,
+            // ),
+            // Spacer(),
+            IconButton(
+                onPressed: () {
+                  setState(() {
+                    _click = !_click;
+                  });
+                  // icon:
+                  // Icon(
+                  //   Icons.favorite,
+                  //   // color: Colors.red,
+                  // );
+                },
+                icon: Icon(
+                  (_click == false) ? Icons.favorite : Icons.favorite_border,
+                ))
           ],
         ),
       ),

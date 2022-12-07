@@ -1,5 +1,5 @@
 import 'package:cryptify/FirstScreen.dart';
-import 'package:cryptify/bottomnavbar.dart';
+
 import 'package:flutter/material.dart';
 
 void main() {
@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
       title: 'Flutter Demo',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(brightness: Brightness.dark),
-      home: bottomNav(),
+      home: FirstScreen(),
     );
   }
 }
