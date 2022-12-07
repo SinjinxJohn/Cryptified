@@ -123,7 +123,7 @@ class _HomePageState extends State<HomePage> {
                                       Text(
                                         _random[index].name.toString(),
                                         style: TextStyle(
-                                            fontSize: 20,
+                                            fontSize: 19,
                                             fontWeight: FontWeight.bold),
                                       ),
                                       SizedBox(
@@ -202,8 +202,8 @@ class _HomePageState extends State<HomePage> {
                                   ),
                                   Spacer(),
                                   Container(
-                                    height: 100,
-                                    width: 100,
+                                    height: 87,
+                                    width: 87,
                                     // margin: EdgeInsets.all(10),
                                     decoration: BoxDecoration(
                                         borderRadius: BorderRadius.circular(15),
