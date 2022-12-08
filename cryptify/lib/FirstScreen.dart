@@ -33,6 +33,13 @@ class _FirstScreenState extends State<FirstScreen> {
           ),
           Text("CRYPTIFIED",
               style: TextStyle(
+                  shadows: <Shadow>[
+                    Shadow(
+                      // offset: Offset(4.0, 4.0),
+                      blurRadius: 20.0,
+                      color: Colors.white,
+                    )
+                  ],
                   fontSize: 30,
                   fontWeight: FontWeight.bold,
                   color: Colors.white))

@@ -40,8 +40,8 @@ class _bottomNavState extends State<bottomNav> {
           items: [
             BottomNavigationBarItem(label: 'Home', icon: Icon(Icons.home)),
             BottomNavigationBarItem(label: 'Search', icon: Icon(Icons.search)),
-            BottomNavigationBarItem(
-                label: 'Favourites', icon: Icon(Icons.favorite)),
+            // BottomNavigationBarItem(
+            //     label: 'Favourites', icon: Icon(Icons.favorite)),
           ]),
     );
   }

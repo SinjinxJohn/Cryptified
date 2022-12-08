@@ -1,8 +1,14 @@
 import 'package:cryptify/FirstScreen.dart';
 
 import 'package:flutter/material.dart';
+// import 'package:hive/hive.dart';
+// import 'package:hive_flutter/adapters.dart';
 
-void main() {
+void main() async {
+  // await Hive.initFlutter();
+  // const String fav = "favourites";
+  // // var box = Hive.openBox("favourites");
+  // await Hive.openBox(fav);
   runApp(const MyApp());
 }
 

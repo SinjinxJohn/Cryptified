@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_spinkit/flutter_spinkit.dart';
 
 // import 'package:http/http.dart' as http;
 import 'package:cryptify/api.dart';
@@ -87,7 +88,15 @@ class _SearchBarState extends State<SearchBar> {
                                         : _listItem(index - 1);
                                   } else {
                                     return Center(
-                                        child: CircularProgressIndicator());
+                                      child: Padding(
+                                        padding:
+                                            const EdgeInsets.only(top: 350),
+                                        child: Container(
+                                          child: SpinKitFadingCircle(
+                                              color: Colors.white),
+                                        ),
+                                      ),
+                                    );
                                   }
                                 })),
                           ),
