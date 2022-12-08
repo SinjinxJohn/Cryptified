@@ -190,20 +190,20 @@ class _SearchBarState extends State<SearchBar> {
             //   width: 5,
             // ),
             // Spacer(),
-            IconButton(
-                onPressed: () {
-                  setState(() {
-                    _click = !_click;
-                  });
-                  // icon:
-                  // Icon(
-                  //   Icons.favorite,
-                  //   // color: Colors.red,
-                  // );
-                },
-                icon: Icon(
-                  (_click == false) ? Icons.favorite : Icons.favorite_border,
-                ))
+            // IconButton(
+            //     onPressed: () {
+            //       setState(() {
+            //         _click = !_click;
+            //       });
+            //       // icon:
+            //       // Icon(
+            //       //   Icons.favorite,
+            //       //   // color: Colors.red,
+            //       // );
+            //     },
+            //     icon: Icon(
+            //       (_click == false) ? Icons.favorite : Icons.favorite_border,
+            //     ))
           ],
         ),
       ),

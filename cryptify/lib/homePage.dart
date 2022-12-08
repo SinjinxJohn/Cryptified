@@ -7,7 +7,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/src/widgets/container.dart';
 import 'package:flutter/src/widgets/framework.dart';
-import 'package:http/http.dart' as http;
+// import 'package:http/http.dart' as http;
 import 'package:cryptify/api.dart';
 import './api.dart';
 import './network.dart';

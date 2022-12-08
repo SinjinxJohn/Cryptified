@@ -15,7 +15,7 @@ class _FirstScreenState extends State<FirstScreen> {
   void initState() {
     // TODO: implement initState
     super.initState();
-    Future.delayed(Duration(seconds: 8), () {
+    Future.delayed(Duration(seconds: 5), () {
       Navigator.push(context, MaterialPageRoute(builder: (_) => LoginPage()));
     });
   }

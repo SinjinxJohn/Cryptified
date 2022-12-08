@@ -1,9 +1,12 @@
 import 'package:cryptify/Components/Button.dart';
 import 'package:cryptify/Components/inputBox.dart';
 import 'package:cryptify/bottomnavbar.dart';
+// import 'package:cryptify/bottomnavbar.dart';
+import 'package:cryptify/homePage.dart';
 
 import 'package:flutter/material.dart';
-
+//
+// import 'package:http/http.dart' as http;
 import 'package:lottie/lottie.dart';
 
 class LoginPage extends StatefulWidget {
@@ -14,6 +17,26 @@ class LoginPage extends StatefulWidget {
 }
 
 class _LoginPageState extends State<LoginPage> {
+  // final TextEditingController _emailController = TextEditingController();
+  // final TextEditingController _passwordController = TextEditingController();
+
+  // void login(String email, String password) async {
+  //   try {
+  //     final response = await post(Uri.parse("https://reqres.in/api/login"),
+  //         body: {'email': email, 'password': password});
+  //     if (response.statusCode == 200) {
+  //       Navigator.push(
+  //         context,
+  //         MaterialPageRoute(builder: (context) => const HomePage()),
+  //       );
+  //     } else {
+  //       print('failed');
+  //     }
+  //   } catch (e) {
+  //     print(e.toString());
+  //   }
+  // }
+
   @override
   Widget build(BuildContext context) {
     return SafeArea(
@@ -31,21 +54,29 @@ class _LoginPageState extends State<LoginPage> {
               SizedBox(
                 height: 120,
               ),
-              InputBox(value: "Enter your username"),
+              InputBox(
+                value: "Enter the email",
+              ),
               SizedBox(
                 height: 5,
               ),
-              InputBox(value: "Enter the password"),
+              InputBox(
+                value: "Enter the password",
+              ),
               SizedBox(
                 height: 10,
               ),
               GestureDetector(
                   onTap: () {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: ((context) => bottomNav())));
+                    Navigator.push(
+                      context,
+                      MaterialPageRoute(builder: (context) => bottomNav()),
+                    );
+                    // login(_emailController.text.toString(),
+                    //     _passwordController.text.toString());
                   },
                   child: ResuableButton(
-                      text: "Login", color: Colors.indigo.shade700)),
+                      text: "Login", color: Color.fromARGB(255, 68, 247, 68))),
               SizedBox(
                 height: 10,
               ),
