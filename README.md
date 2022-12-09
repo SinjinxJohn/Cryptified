@@ -9,7 +9,7 @@ This application is built to show case cryptocurrency data in a user-to-understa
 
 2.Login Page:
 
-![WhatsApp Image 2022-12-09 at 10 48 45 AM](https://user-images.githubusercontent.com/94734703/206630456-fef087dd-87bb-481c-b094-f1196920f8f9.jpeg)
+![WhatsApp Image 2022-12-09 at 10 48 45 AM](https://user-images.githubusercontent.com/94734703/206630456-fef087dd-87bb-481c-b094-f1196920f8f9.jpeg | width=100)
 
 3.Home Page:
 
