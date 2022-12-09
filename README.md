@@ -5,7 +5,7 @@ This application is built to show case cryptocurrency data in a user-to-understa
 
 1.First Screen:
 
-![WhatsApp Image 2022-12-09 at 10 48 41 AM](https://user-images.githubusercontent.com/94734703/206630426-74fbde4c-06c5-4378-917c-e46ac82bed5f.jpeg)
+![WhatsApp Image 2022-12-09 at 10 48 41 AM](https://user-images.githubusercontent.com/94734703/206630426-74fbde4c-06c5-4378-917c-e46ac82bed5f.jpeg | width=100)
 
 2.Login Page:
 
