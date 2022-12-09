@@ -6,7 +6,7 @@ This application is built to show case cryptocurrency data in a user-to-understa
 1.First Screen:
 
 
-<img src="https://user-images.githubusercontent.com/94734703/206630426-74fbde4c-06c5-4378-917c-e46ac82bed5f.jpeg)" width="200" height="400" />
+<img src="https://user-images.githubusercontent.com/94734703/206630426-74fbde4c-06c5-4378-917c-e46ac82bed5f.jpeg" width="200" height="400" />
 
 2.Login Page:
 
