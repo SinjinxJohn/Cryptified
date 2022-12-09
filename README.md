@@ -18,12 +18,27 @@ This application is built to show case cryptocurrency data in a user-to-understa
 
 3.Home Page:
 
-![WhatsApp Image 2022-12-09 at 10 48 47 AM](https://user-images.githubusercontent.com/94734703/206630535-9c297f32-0a70-40ca-b40e-7178904440b1.jpeg)
 
-![WhatsApp Image 2022-12-09 at 10 48 49 AM](https://user-images.githubusercontent.com/94734703/206630552-2887397e-250b-4db8-b3ca-774078182fb4.jpeg)
+
+<img src="https://user-images.githubusercontent.com/94734703/206630535-9c297f32-0a70-40ca-b40e-7178904440b1.jpeg" width="250" height="400" />
+
+
+
+<!-- ![WhatsApp Image 2022-12-09 at 10 48 47 AM](https://user-images.githubusercontent.com/94734703/206630535-9c297f32-0a70-40ca-b40e-7178904440b1.jpeg) -->
+<img src="https://user-images.githubusercontent.com/94734703/206630552-2887397e-250b-4db8-b3ca-774078182fb4.jpeg" width="250" height="400" />
+<!-- ![WhatsApp Image 2022-12-09 at 10 48 49 AM](https://user-images.githubusercontent.com/94734703/206630552-2887397e-250b-4db8-b3ca-774078182fb4.jpeg) -->
+
+
 
 4. Search Page:
 
-![WhatsApp Image 2022-12-09 at 10 48 49 AM (1)](https://user-images.githubusercontent.com/94734703/206630577-37c6d55c-79e0-423c-85e9-23a9a17ee5a6.jpeg)
 
-![WhatsApp Image 2022-12-09 at 10 48 49 AM (2)](https://user-images.githubusercontent.com/94734703/206630583-3139f0af-3c16-43c3-9882-7733df856394.jpeg)
+
+<img src="https://user-images.githubusercontent.com/94734703/206630577-37c6d55c-79e0-423c-85e9-23a9a17ee5a6.jpeg" width="250" height="400" />
+
+
+
+
+<!-- ![WhatsApp Image 2022-12-09 at 10 48 49 AM (1)](https://user-images.githubusercontent.com/94734703/206630577-37c6d55c-79e0-423c-85e9-23a9a17ee5a6.jpeg) -->
+<img src="https://user-images.githubusercontent.com/94734703/206630583-3139f0af-3c16-43c3-9882-7733df856394.jpeg" width="250" height="400" />
+<!-- ![WhatsApp Image 2022-12-09 at 10 48 49 AM (2)](https://user-images.githubusercontent.com/94734703/206630583-3139f0af-3c16-43c3-9882-7733df856394.jpeg) -->
