@@ -6,6 +6,7 @@ This application is built to show case cryptocurrency data in a user-to-understa
 1.First Screen:
 
 ![WhatsApp Image 2022-12-09 at 10 48 41 AM](https://user-images.githubusercontent.com/94734703/206630426-74fbde4c-06c5-4378-917c-e46ac82bed5f.jpeg | width=100)
+<img src="https://camo.githubusercontent.com/..." data-canonical-src="[https://gyazo.com/eb5c5741b6a9a16c692170a41a49c858.png](https://user-images.githubusercontent.com/94734703/206630426-74fbde4c-06c5-4378-917c-e46ac82bed5f.jpeg)" width="200" height="400" />
 
 2.Login Page:
 
